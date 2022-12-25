@@ -1,10 +1,10 @@
 package javacloud.framework.aws.internal;
 
+import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import com.amazonaws.SdkClientException;
 import com.amazonaws.auth.AWSCredentials;
-import com.amazonaws.auth.AWSCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.auth.BasicSessionCredentials;
 import com.amazonaws.auth.EC2ContainerCredentialsProviderWrapper;
@@ -13,7 +13,6 @@ import com.amazonaws.auth.WebIdentityTokenCredentialsProvider;
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
 
 import javacloud.framework.aws.config.AWSCredentialsSettings;
-import javacloud.framework.cdi.ServiceRegistry;
 import javacloud.framework.config.ConfigManager;
 import javacloud.framework.util.Objects;
 
@@ -22,21 +21,25 @@ import javacloud.framework.util.Objects;
  */
 @Singleton
 public final class AWSCredentialsProviderChain extends com.amazonaws.auth.AWSCredentialsProviderChain {
-	public AWSCredentialsProviderChain() {
+	@Inject
+	public AWSCredentialsProviderChain(ConfigManager configManager) {
 		super(new EnvironmentVariableCredentialsProvider(),
-			CONFIG_PROVIDER,
+			new AWSCredentialsProvider(configManager),
             WebIdentityTokenCredentialsProvider.create(),
             new ProfileCredentialsProvider(),
             new EC2ContainerCredentialsProviderWrapper());
 	}
 
-	private static final AWSCredentialsProvider CONFIG_PROVIDER = new AWSCredentialsProvider() {
+	static final class AWSCredentialsProvider implements com.amazonaws.auth.AWSCredentialsProvider {
+		private final ConfigManager configManager;
 		private AWSCredentialsSettings cacheSettings;
 		
+		AWSCredentialsProvider(ConfigManager configManager) {
+			this.configManager = configManager;
+		}
 		@Override
 		public AWSCredentials getCredentials() {
 			if (cacheSettings == null) {
-				ConfigManager configManager = ServiceRegistry.get().getInstance(ConfigManager.class);
 				cacheSettings = configManager.getConfig(AWSCredentialsSettings.class);
 			}
 			
