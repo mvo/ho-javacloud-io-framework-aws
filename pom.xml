@@ -1,0 +1,189 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+  	<groupId>io.javacloud.framework</groupId>
+  	<artifactId>javacloud-framework</artifactId>
+  	<version>0.7.9</version>
+  </parent>
+  
+  <groupId>io.javacloud.framework.aws</groupId>
+  <artifactId>javacloud-framework-aws</artifactId>
+  <version>0.1.0</version>
+  <packaging>pom</packaging>
+  
+  <scm>
+    <url>scm:git:https://github.com/javacloud-io/framework-aws.git</url>
+  </scm>
+  
+  <licenses>
+    <license>
+        <name>Apache License, Version 2.0</name>
+        <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+        <comments>A business-friendly OSS license</comments>
+    </license>
+  </licenses>
+  
+  <properties>
+    <framework.version>0.7.9</framework.version>
+    <snakeyaml.version>1.33</snakeyaml.version>
+    <aws.sdk.version>1.12.372</aws.sdk.version>
+  </properties>
+  
+  <modules>
+     <module>common</module>
+  </modules>
+  
+  <dependencyManagement>
+    <dependencies>
+    	<!-- aws client -->
+    	<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-core</artifactId>
+		    <version>${aws.sdk.version}</version>
+		</dependency>
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-sts</artifactId>
+            <version>${aws.sdk.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-iam</artifactId>
+            <version>${aws.sdk.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-s3</artifactId>
+            <version>${aws.sdk.version}</version>
+        </dependency>
+        <dependency>
+    		<groupId>com.amazonaws</groupId>
+    		<artifactId>aws-java-sdk-kinesis</artifactId>
+    		<version>${aws.sdk.version}</version>
+		</dependency>
+		<dependency>
+      		<groupId>com.amazonaws</groupId>
+      		<artifactId>aws-lambda-java-core</artifactId>
+      		<version>${aws.sdk.version}</version>
+    	</dependency>
+    	<dependency>
+      		<groupId>com.amazonaws</groupId>
+      		<artifactId>aws-lambda-java-events</artifactId>
+      		<version>${aws.sdk.version}</version>
+    	</dependency>
+    	<dependency>
+    		<groupId>com.amazonaws.secretsmanager</groupId>
+    		<artifactId>aws-secretsmanager-caching-java</artifactId>
+    		<version>${aws.sdk.version}</version>
+		</dependency>
+		
+		<dependency>
+	   		<groupId>org.yaml</groupId>
+	   		<artifactId>snakeyaml</artifactId>
+	   		<version>${snakeyaml.version}</version>
+		</dependency>
+		
+		<!-- javacloud -->
+        <dependency>
+            <groupId>io.javacloud.framework</groupId>
+            <artifactId>javacloud-common</artifactId>
+            <version>${framework.version}</version>
+	    </dependency>
+	    <dependency>
+            <groupId>io.javacloud.framework</groupId>
+            <artifactId>javacloud-cdi</artifactId>
+            <version>${framework.version}</version>
+        </dependency>
+	    <dependency>
+	        <groupId>io.javacloud.framework</groupId>
+	        <artifactId>javacloud-logging</artifactId>
+	        <version>${framework.version}</version>
+	    </dependency>
+	    <dependency>
+            <groupId>io.javacloud.framework</groupId>
+            <artifactId>javacloud-config</artifactId>
+            <version>${framework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.javacloud.framework</groupId>
+            <artifactId>javacloud-i18n</artifactId>
+            <version>${framework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.javacloud.framework</groupId>
+            <artifactId>javacloud-json</artifactId>
+            <version>${framework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.javacloud.framework</groupId>
+            <artifactId>javacloud-security</artifactId>
+            <version>${framework.version}</version>
+        </dependency>
+	    <dependency>
+	        <groupId>io.javacloud.framework</groupId>
+	        <artifactId>javacloud-txn</artifactId>
+	        <version>${framework.version}</version>
+	    </dependency>
+	    <dependency>
+            <groupId>io.javacloud.framework</groupId>
+            <artifactId>javacloud-jaxrs</artifactId>
+            <version>${framework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.javacloud.framework</groupId>
+            <artifactId>javacloud-grpc</artifactId>
+            <version>${framework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.javacloud.framework</groupId>
+            <artifactId>javacloud-gson</artifactId>
+            <version>${framework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.javacloud.framework</groupId>
+            <artifactId>javacloud-server-grpc</artifactId>
+            <version>${framework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.javacloud.framework</groupId>
+            <artifactId>javacloud-server-netty</artifactId>
+            <version>${framework.version}</version>
+        </dependency>
+	    <dependency>
+            <groupId>io.javacloud.framework</groupId>
+            <artifactId>javacloud-server</artifactId>
+            <version>${framework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.javacloud.framework</groupId>
+            <artifactId>javacloud-standalone</artifactId>
+            <version>${framework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.javacloud.framework</groupId>
+            <artifactId>javacloud-server-test</artifactId>
+            <version>${framework.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+        	<groupId>io.javacloud.framework</groupId>
+       		<artifactId>javacloud-cdi</artifactId>
+        	<type>test-jar</type>
+        	<version>${framework.version}</version>
+        	<scope>test</scope>
+    	</dependency>
+    </dependencies>
+  </dependencyManagement>
+  
+  <!-- mvn deploy with custom code artifact URL -->
+  <distributionManagement>
+    <repository>
+        <id>codeartifact</id>
+        <name>codeartifact</name>
+        <url>${env.CODEARTIFACT_URL}</url>
+    </repository>
+  </distributionManagement>
+  
+</project>

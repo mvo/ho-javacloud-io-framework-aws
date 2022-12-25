@@ -1,0 +1,4 @@
+######### List of modules or services binding ########
+
+framework.config.services
+aws.common.services

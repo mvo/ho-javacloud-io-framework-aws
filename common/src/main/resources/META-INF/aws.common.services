@@ -1,0 +1,3 @@
+# Default aws configure factory services
+#
+com.amazonaws.auth.AWSCredentialsProvider=javacloud.framework.aws.internal.AWSCredentialsProviderChain
