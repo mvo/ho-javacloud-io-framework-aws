@@ -20,7 +20,7 @@ import javacloud.framework.util.Objects;
  * Using ServiceRegistry.get().getInstance(com.amazonaws.auth.AWSCredentialsProvider.class)
  */
 @Singleton
-public final class AWSCredentialsProviderChain extends com.amazonaws.auth.AWSCredentialsProviderChain {
+public class AWSCredentialsProviderChain extends com.amazonaws.auth.AWSCredentialsProviderChain {
 	@Inject
 	public AWSCredentialsProviderChain(ConfigManager configManager) {
 		super(new EnvironmentVariableCredentialsProvider(),
@@ -30,7 +30,7 @@ public final class AWSCredentialsProviderChain extends com.amazonaws.auth.AWSCre
             new EC2ContainerCredentialsProviderWrapper());
 	}
 
-	static final class AWSCredentialsProvider implements com.amazonaws.auth.AWSCredentialsProvider {
+	public static final class AWSCredentialsProvider implements com.amazonaws.auth.AWSCredentialsProvider {
 		private final ConfigManager configManager;
 		private AWSCredentialsSettings cacheSettings;
 		
