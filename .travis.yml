@@ -1,0 +1,8 @@
+language: java
+jdk:
+    - oraclejdk11
+script:
+    mvn clean test
+
+notifications:
+    email: false
