@@ -5,16 +5,17 @@
   <parent>
   	<groupId>io.javacloud.framework</groupId>
   	<artifactId>javacloud-framework</artifactId>
-  	<version>0.7.9</version>
+  	<version>0.8.0</version>
   </parent>
   
   <groupId>io.javacloud.framework.aws</groupId>
   <artifactId>javacloud-framework-aws</artifactId>
-  <version>0.1.0</version>
+  <version>${revision}</version>
   <packaging>pom</packaging>
   
   <scm>
-    <url>scm:git:https://github.com/javacloud-io/framework-aws.git</url>
+    <url>https://github.com/javacloud-io/framework-aws.git</url>
+    <developerConnection>scm:git:https://github.com/javacloud-io/framework-aws.git</developerConnection>
   </scm>
   
   <licenses>
@@ -26,7 +27,8 @@
   </licenses>
   
   <properties>
-    <framework.version>0.7.9</framework.version>
+    <revision>0.1.0-SNAPSHOT</revision>
+    <framework.version>0.8.0</framework.version>
     <snakeyaml.version>1.33</snakeyaml.version>
     <aws.sdk.version>1.12.372</aws.sdk.version>
   </properties>

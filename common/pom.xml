@@ -3,7 +3,7 @@
   <parent>
   	<groupId>io.javacloud.framework.aws</groupId>
   	<artifactId>javacloud-framework-aws</artifactId>
-  	<version>0.1.0</version>
+  	<version>${revision}</version>
   </parent>
   
   <modelVersion>4.0.0</modelVersion>
