@@ -178,14 +178,4 @@
     	</dependency>
     </dependencies>
   </dependencyManagement>
-  
-  <!-- mvn deploy with custom code artifact URL -->
-  <distributionManagement>
-    <repository>
-        <id>codeartifact</id>
-        <name>codeartifact</name>
-        <url>${env.CODEARTIFACT_URL}</url>
-    </repository>
-  </distributionManagement>
-  
 </project>
