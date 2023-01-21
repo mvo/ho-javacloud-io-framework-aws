@@ -178,4 +178,18 @@
     	</dependency>
     </dependencies>
   </dependencyManagement>
+  
+  <repositories>
+    <repository>
+        <id>${env.MAVEN_REPO_ID}</id>
+        <url>${env.MAVEN_REPO_URL}</url>
+        
+        <releases>
+            <enabled>true</enabled>
+        </releases>
+        <snapshots>
+            <enabled>true</enabled>
+        </snapshots>
+    </repository>
+  </repositories>
 </project>
